@@ -1,28 +1,22 @@
 {
-  "//1": "describes your app and its dependencies",
-  "//2": "https://docs.npmjs.com/files/package.json",
-  "//3": "updating this file will download and update your packages",
-
-  "name": "my-glitch-app",
-  "version": "0.0.1",
-  "description": "What am I about?",
-  "main": "server.js",
-  "scripts": {
-    "start": "node server.js"
+  "name": "async",
+  "version": "0.1.0",
+  "private": true,
+  "devDependencies": {
+    "react-scripts": "^1.0.7"
   },
   "dependencies": {
-    "express": "^4.15.3"
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2",
+    "react-redux": "^5.0.3",
+    "react-spinkit": "^2.1.1",
+    "redux": "^3.6.0",
+    "redux-thunk": "^2.2.0"
   },
-  "engines": {
-    "node": "8.1.x"
-  },
-  "repository": {
-    "url": "https://glitch.com/edit/#!/welcome-project"
-  },
-  "license": "MIT",
-  "keywords": [
-    "node",
-    "glitch",
-    "express"
-  ]
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
 }
