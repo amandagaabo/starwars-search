@@ -23,5 +23,7 @@ export const searchCharactersError = error => ({
 export const searchCharacters = name => dispatch => {
     // Make this async action using the search function
     // It should dispatch the three sync actions above
+  dispatch(searchCharactersRequest());
+  
 };
 
