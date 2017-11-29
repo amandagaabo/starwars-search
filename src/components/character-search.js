@@ -9,7 +9,6 @@ export class CharacterSearch extends React.Component {
       
       // get value from form using ref (this.input)
       const term = this.input.value.trim();
-      console.log(term)
       
       // dispatch search characters action
       this.props.dispatch(searchCharacters(term))
@@ -26,7 +25,7 @@ export class CharacterSearch extends React.Component {
         if (this.props.error) {
             return <strong>{this.props.error}</strong>;
         }
-
+        
         const characters = this.props.characters.map((character, index) => (
             <li key={index}>{character}</li>
         ));

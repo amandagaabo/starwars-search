@@ -29,19 +29,14 @@ export const searchCharacters = name => dispatch => {
   
   // search for the name
   search(name).then(result => {
-    console.log('search success')
     // call the success function and pass in the result of the search on success,
     // characters are updated in the state
     dispatch(searchCharactersSuccess(result));
   }).catch(err => {
-    console.log('search error')
-    console.log(err)
     // call the error function if something goes wrong
     // error message is updated in the state
     dispatch(searchCharactersError(err))
   })
-  
-  
   
 };
 
