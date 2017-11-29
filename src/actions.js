@@ -23,7 +23,21 @@ export const searchCharactersError = error => ({
 export const searchCharacters = name => dispatch => {
     // Make this async action using the search function
     // It should dispatch the three sync actions above
+  
   dispatch(searchCharactersRequest());
+  
+  search(name).then( res => {
+    if (!res.ok) {
+      return Promise.reject(res.statusText);
+    }
+    return res.json();
+  }).then(name => {
+    dispatch(searchCharactersSuccess(name));
+  }).catch(err => {
+    dispatch(searchCharactersError(err))
+  })
+  
+  
   
 };
 
