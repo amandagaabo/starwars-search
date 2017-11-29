@@ -24,16 +24,23 @@ export const searchCharacters = name => dispatch => {
     // Make this async action using the search function
     // It should dispatch the three sync actions above
   
+  // dispatch the searchCharactersRequest action to start the request and show loading circle
   dispatch(searchCharactersRequest());
   
+  // search for the name
   search(name).then( res => {
     if (!res.ok) {
       return Promise.reject(res.statusText);
     }
     return res.json();
-  }).then(name => {
-    dispatch(searchCharactersSuccess(name));
+  }).then(result => {
+    // call the success function and pass in the result of the search on success,
+    // characters are updated in the state
+    dispatch(searchCharactersSuccess(result));
   }).catch(err => {
+    
+    // call the error function if something goes wrong
+    // error message is updated in the state
     dispatch(searchCharactersError(err))
   })
   

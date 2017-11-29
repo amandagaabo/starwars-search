@@ -7,8 +7,15 @@ export class CharacterSearch extends React.Component {
     onSubmit(e) {
       e.preventDefault();
       
-      const term = this.input.value.trip();
+      // get value from form using ref (this.input)
+      const term = this.input.value.trim();
       console.log(term)
+      
+      // dispatch search characters action
+      this.props.dispatch(searchCharacters(term))
+      
+      // clear search field
+      this.input.value = ""
     }
   
     renderResults() {
@@ -32,7 +39,7 @@ export class CharacterSearch extends React.Component {
             <div className="character-search">
                 {/* When this form is submitted you should submit the
                     searchCharacters action */}
-                <form onSubmit={this.onSubmit}>
+                <form onSubmit={e => this.onSubmit(e)}>
                     <input type="search" ref={input => (this.input = input)} />
                     <button>Search</button>
                 </form>
