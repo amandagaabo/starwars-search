@@ -35,7 +35,7 @@ export const searchCharacters = name => dispatch => {
   }).catch(err => {
     // call the error function if something goes wrong
     // error message is updated in the state
-    dispatch(searchCharactersError(err))
+    dispatch(searchCharactersError(err));
   })
   
 };
