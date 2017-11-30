@@ -9,9 +9,12 @@ function _search(name) {
         }
         return res.json()
     }).then(data => {
-        console.log(data.results)
-        
-        return data.results.map(character => character.name)
+        if(data.results.length === 0) {
+          return Promise.reject('No results found')
+        }
+        else {
+          return data.results.map(character => character.name)
+        }
     });
             
 }
